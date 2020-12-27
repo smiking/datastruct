@@ -3,10 +3,13 @@
 
 void CreateMGraph(MGraph &G){
 	int i,j,k,w;
+	printf("please input the vexnum and arcnum of this graph:\n");
 	scanf("%d%d",&G.vexnum,&G.arcnum);
+	printf("input the weight of very vertex:\n");
 	for (i = 0; i < G.vexnum; ++i) scanf("%d",&G.vexs[i+1]);
 	for (i = 0; i < G.vexnum; ++i)  // init matrix
 		for (j = 0; j < G.vexnum; ++j) G.arcs[i+1][j+1] = {INFINITY,NULL};
+	printf("please input the edge for FORMAT(vi vj weight):\n");
 	for (k = 0; k < G.arcnum ; ++k) {
 		scanf("%d%d%d",&i,&j,&w);
 		G.srcset[k] = {i,j,w};
@@ -17,6 +20,7 @@ void CreateMGraph(MGraph &G){
 
 void printMGraph(MGraph &G){          // output the MGraph
 	int i,j,k;
+	printf("the Gragh Matrix below:\n");
 	for (i = 0; i < G.vexnum; ++i) {
 		for (j = 0; j < G.vexnum; ++j) {
 			k = G.arcs[i+1][j+1].adj;
@@ -31,6 +35,7 @@ void printMGraph(MGraph &G){          // output the MGraph
 
 
 void PRIM(const MGraph &G,VertexType u){  // u:the vex of beginning from PRIM
+	printf("PRIM:\nthe order the tree generate and the lowcost for FORMAT: number(lowcost):\n");
 	int i,j,k;
 	k=u;
 	closedge closedge;            // closedge.lowcost always is the minist distance between very node to the mintree
@@ -67,6 +72,7 @@ int minimum(closedge closedge,int n){    // get the minist edge
 
 
 void Kruskal(MGraph &G){
+	printf("Kruskal:\nthe order the tree generate for FORMAT: (vi <- edge's weight ->vj)\n");
 	SrcType* srcset = G.srcset;
 	QuickSortSrc(srcset,0,G.arcnum-1);     // sort the edge
 	int sign[G.vexnum+1];                 // the sign for divide different area

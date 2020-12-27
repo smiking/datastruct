@@ -4,6 +4,7 @@
 int main(){
 	ALGraph G;
 	CreateALGraph(G);
+	printALGraph(G);
 	// for (int i = 1; i < G.vexnnum+1; ++i) {
 	// 	printf("%d\n",G.vertices[i].data);
     //
