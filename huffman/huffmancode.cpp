@@ -60,7 +60,7 @@ void Select(const HuffmanTree &HT,const int i,int &s1,int &s2){  // get the two 
 		if(HT[j].parent==0 &&  HT[j].weight < HT[s1].weight){
 			s2=s1;s1=j;
 		}
-		if(HT[j].parent==0 && HT[j].weight>HT[s1].weight && HT[j].weight<HT[s2].weight){
+		if(HT[j].parent==0 && HT[j].weight>=HT[s1].weight && HT[j].weight<HT[s2].weight){
 			s2=j;
 		}
 		j++;
